@@ -1,0 +1,2 @@
+class Pesquisa < ApplicationRecord
+end
