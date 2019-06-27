@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  # get 'welcome/index'
+  get 'welcome/index'
 
-  root 'pesquisa#index'
+  root 'pesquisas#index'
 
-  resources :nota
-  resources :pesquisa
-  resources :user
+  resources :notas
+  resources :pesquisas
+  resources :users
 end

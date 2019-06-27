@@ -1,4 +1,4 @@
-class NotaController < ApplicationController
+class NotasController < ApplicationController
   def index
     @notas = Nota.all
   end

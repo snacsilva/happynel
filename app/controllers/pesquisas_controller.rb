@@ -1,4 +1,4 @@
-class PesquisaController < ApplicationController
+class PesquisasController < ApplicationController
   def index
     @pesquisas = Pesquisa.all
   end
@@ -42,6 +42,17 @@ class PesquisaController < ApplicationController
       format.html { redirect_to categories_url, notice: 'pesquisa was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pesquisa
+   authorize @pesquisa = Pesquisa.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def pesquisa_params
+    params.require(:pesquisa).permit(:nome)
   end
 
 end
