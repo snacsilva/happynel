@@ -1,0 +1,14 @@
+<%= form_with(model: membro, local: true) do |form| %>
+  <form>
+    <div class="form-group">
+      <label for="pergunta">Pergunta</label>
+      <%=form.text_field :nome, 
+	           placeholder: 'nome', 
+	           class: 'form-control'%>
+      <%= form.text_field :email, 
+	           placeholder: 'email', 
+	           class: 'form-control' %>
+    </div>
+    <%= form.submit "Salvar", class: "btn btn-primary" %>
+  </form>
+<% end %>   
