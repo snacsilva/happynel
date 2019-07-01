@@ -1,5 +1,5 @@
 class Pesquisa < ApplicationRecord
-    has_many :notas :delete_all
+    has_many :notas
 
     validates_presence_of :pergunta
 

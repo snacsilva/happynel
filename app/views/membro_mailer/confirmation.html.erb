@@ -9,7 +9,8 @@
 </p>
 
 <p>
-  <%=@member.pesquisa.link%>
+  <%host = 'http://127.0.0.1:3000'%>
+  <%=link_to("Acessar Pesquisa","#{host}/pesquisas/#{@member.pesquisa_id}")%>
 </p>
 
 <p>
