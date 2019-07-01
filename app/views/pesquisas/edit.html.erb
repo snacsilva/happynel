@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <%= form_with(model: @pesquisa, local: true) do |form| %>
+    <%=@pesquisa.pergunta%>
+    <%= form.select(:nota, 
+          options_for_select(0..10)) 
+          %>
+  <%end%>
+</div>
