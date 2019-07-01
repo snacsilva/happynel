@@ -13,8 +13,8 @@
       <%= form.select(:pesquisa_id, 
           options_for_select(perguntas_array)) %>
       <div>
-        <%=form.radio_button(:admin, "Admin?")%>
-        <label for="admin?">É admin?</label>
+      <%=form.radio_button(:admin, "Admin?")%>
+      <label for="admin?">É admin?</label>
       </div>
     </div>
     <%= form.submit "Salvar", class: "btn btn-primary" %>
