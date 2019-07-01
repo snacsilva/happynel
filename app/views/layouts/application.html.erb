@@ -8,13 +8,19 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <% @usuario = current_user  %>
+  <% if !user_signed_in?%>
+    <%= render partial: "layouts/logout" %>
+  <% end %>
 
-  <body>
+  <body class="text-center">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/pesquisas">HappyNel</a>
+    <% if user_signed_in?%>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <% if @usuario.admin? %>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
@@ -25,6 +31,11 @@
           </li>
         </ul>
       </div>
+    <%end%>
+    <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></br>
+    <%end%>
+    <span class="navbar-text">
+    </span>
     </nav>
     <%= yield %>
   </body>

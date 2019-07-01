@@ -32,6 +32,7 @@ class PesquisasController < ApplicationController
   end
 
   def update
+    
     respond_to do |format|
       if @pesquisa.update(pesquisa_params)
         format.html { redirect_to @pesquisa, notice: 'pesquisa was successfully updated.' }

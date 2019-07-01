@@ -1,5 +1,6 @@
 class MembrosController < ApplicationController
   before_action :set_membro, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
 
   def index
@@ -31,7 +32,7 @@ class MembrosController < ApplicationController
   def update
     raise 'Procedimento não permitido' if @membro.nil?
     @user = User.find(@membro.user_id)
-    @user.update_attributes({email: params[:email], admin: params[:admin], nome: params[:user_nome]})
+    @user.update_attributes({email: params[:email], admin: params[:admin], nome: params[:nome]})
     respond_to do |format|
       if @membro.update(membro_params)
         format.html { redirect_to @membro, notice: 'membro was successfully updated.' }

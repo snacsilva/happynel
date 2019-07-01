@@ -5,7 +5,7 @@ Você foi convidado(a) para nos ajudar com essa pesquisa de satisfação
   Por favor responda a seguinte pergunta de acordo com o que você sente sobre...
 
   <%host = 'http://127.0.0.1:3000'%>
-  <%=link_to("Acessar Pesquisa","#{host}/pesquisas/#{@member.pesquisa_id}")%>
+  <%=link_to("Acessar Pesquisa","#{host}/pesquisas/#{@member.pesquisa_id}/edit")%>
 
   Ah, sua forma de acesso é:<br>
   <strong>Login:</strong> <%=@member.user.email%><br>
