@@ -16,8 +16,8 @@
     <tbody>
        <% @membros.each do |membro| %>
       <tr>
-        <td><%= membro.nome %></td>
-        <td><%= membro.email %></td>
+        <td><%= membro.user.nome %></td>
+        <td><%= membro.user.email %></td>
         <td><%= link_to 'Mostar', membro, :class => 'btn btn-success btn-sm' %>|
         <%= link_to 'Editar', edit_membro_path(membro), :class => 'btn btn-warning btn-sm' %>|
         <%= link_to 'Apagar', membro, :class => 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -9,13 +9,13 @@ class MembroMailer < ApplicationMailer
 
   def confirmation
 
-    mail to: @member.email, 
+    mail to: @member.user.email, 
     subject: "Queremos a sua opnião. Responda a enquete!"
   end
 
   private
 
   def load_member
-    @member = params[:membro]
+    @member = Membro.find params[:id]
   end
 end

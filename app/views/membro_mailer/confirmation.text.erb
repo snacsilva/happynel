@@ -1,7 +1,17 @@
 Você foi convidado(a) para nos ajudar com essa pesquisa de satisfação
+ 
+  Olá, <%= @member.user.nome %>,
 
-Olá, <%= @member.nome %>,
-Por favor responda a seguinte pergunta de acordo com o que você sente sobre...
-<%=@member.pesquisa.link%>
+  Por favor responda a seguinte pergunta de acordo com o que você sente sobre...
+
+  <%host = 'http://127.0.0.1:3000'%>
+  <%=link_to("Acessar Pesquisa","#{host}/pesquisas/#{@member.pesquisa_id}")%>
+
+  Ah, sua forma de acesso é:<br>
+  <strong>Login:</strong> <%=@member.user.email%><br>
+  <strong>Senha:</strong> '123456'
 
 Ficamos agradecidos! =)
+
+E ah! O login é só para controle, suas respostas não serão associadas com você.
+A pesquisa é completamente anônima. ;)

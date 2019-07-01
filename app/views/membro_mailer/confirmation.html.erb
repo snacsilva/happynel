@@ -1,7 +1,7 @@
 <h3>Você foi convidado(a) para nos ajudar com essa pesquisa de satisfação</h3>
 
 <p>
- Olá, <%= @member.nome %>,
+  Olá, <%= @member.user.nome %>,
 </p>
 
 <p>
@@ -14,5 +14,17 @@
 </p>
 
 <p>
+  Ah, sua forma de acesso é:
+  Login: <%=@member.user.email%>
+  Senha: '123456'
+</p>
+
+<p>
 Ficamos agradecidos! =)
 </p>
+
+<p>
+E ah! O login é só para controle, suas respostas não serão associadas com você.
+<br> A pesquisa é completamente anônima! ;)
+</p>
+

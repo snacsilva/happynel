@@ -14,7 +14,7 @@ class MembrosController < ApplicationController
   end
 
   def create 
-    @membro = Membro.new(membro_params)
+    @membro = Membro.save_and_create_user(membro_params)
 
     respond_to do |format|
       if @membro.save
@@ -29,6 +29,9 @@ class MembrosController < ApplicationController
 
   end
   def update
+    raise 'Procedimento não permitido' if @membro.nil?
+    @user = User.find(@membro.user_id)
+    @user.update_attributes({email: params[:email], admin: params[:admin], nome: params[:user_nome]})
     respond_to do |format|
       if @membro.update(membro_params)
         format.html { redirect_to @membro, notice: 'membro was successfully updated.' }
@@ -40,9 +43,8 @@ class MembrosController < ApplicationController
     end
   end
 
-  # DELETE /categories/1
-  # DELETE /categories/1.json
   def destroy
+    raise 'Procedimento não permitido' if @membro.nil? || @membro.user.id == current_user.id
     @membro.destroy
     respond_to do |format|
       format.html { redirect_to membros_url, notice: 'membro was successfully destroyed.' }

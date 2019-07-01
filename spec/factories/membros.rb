@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :membro do
-    nome "MyString"
-    email "MyString"
+    first_nome  { 'MyString' }
+    first_email { 'MyString' }
   end
 end

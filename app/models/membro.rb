@@ -1,11 +1,21 @@
 class Membro < ApplicationRecord
     belongs_to :pesquisa
+    belongs_to :user
 
     after_create :send_confirmation
+
+    def self.save_and_create_user params
+        @user = User.find_or_create(params)
+        @member = Membro.create({
+            pesquisa_id: params[:pesquisa_id], 
+            respondeu: false,
+            user_id: @user.id
+        })
+    end
 
 
     private 
     def send_confirmation
-        MembroMailer.with(membro: self).confirmation.deliver_now
+        MembroMailer.with(membro: self, id: self.id).confirmation.deliver_now
     end
 end

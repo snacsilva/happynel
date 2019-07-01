@@ -47,7 +47,7 @@ group :development, :test do
   gem 'rspec-mocks', '3.8.1'
   gem 'rspec-expectations', '3.8.4'
   gem 'rspec-activemodel-mocks'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'database_cleaner'
   gem 'rubocop'
 end
