@@ -8,7 +8,7 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th colspan="2" scope="col">Pesquisa</th>
+        <th scope="col">Pesquisa</th>
         <th scope="col">Média</th>
         <th scope="col"></th>
       </tr>
@@ -17,10 +17,10 @@
        <% @pesquisas.each do |pesquisa| %>
       <tr>
         <td><%= pesquisa.pergunta %></td>
-        <td><%= pesquisa.notas %></td>
-        <td><%= link_to 'Mostar', pesquisa, :class => 'btn btn-success btn-sm' %></td>
-        <td><%= link_to 'Editar', edit_pesquisa_path(pesquisa), :class => 'btn btn-warning btn-sm' %></td>
-        <td><%= link_to 'Apagar', pesquisa, :class => 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= pesquisa.media %></td>
+        <td><%= link_to 'Mostar', pesquisa, :class => 'btn btn-success btn-sm' %>|
+        <%= link_to 'Editar', edit_pesquisa_path(pesquisa), :class => 'btn btn-warning btn-sm' %>|
+        <%= link_to 'Apagar', pesquisa, :class => 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
 

@@ -1,5 +1,6 @@
 class PesquisasController < ApplicationController
   before_action :set_pesquisa, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
 
   def index
@@ -25,9 +26,11 @@ class PesquisasController < ApplicationController
         format.json { render json: @pesquisa.errors, status: :unprocessable_entity }
       end
     end
-
-
   end
+
+  def edit
+  end
+
   def update
     respond_to do |format|
       if @pesquisa.update(pesquisa_params)

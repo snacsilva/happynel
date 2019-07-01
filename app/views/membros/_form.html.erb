@@ -8,6 +8,11 @@
       <%= form.text_field :email, 
 	           placeholder: 'email', 
 	           class: 'form-control' %>
+      <% perguntas_array = Pesquisa.all.map { |pesquisa|
+          [pesquisa.pergunta, pesquisa.id] } %>
+      <%= form.select(:pesquisa_id, 
+          options_for_select(perguntas_array)) %>
+      
     </div>
     <%= form.submit "Salvar", class: "btn btn-primary" %>
   </form>

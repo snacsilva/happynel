@@ -1,4 +1,7 @@
 class NotasController < ApplicationController
+  before_action :set_nota, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
   def index
     @notas = Nota.all
   end
@@ -34,14 +37,25 @@ class NotasController < ApplicationController
     end
   end
 
-  # DELETE /categories/1
-  # DELETE /categories/1.json
+  # DELETE /notas/1
+  # DELETE /notas/1.json
   def destroy
     @nota.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'pesquisa was successfully destroyed.' }
+      format.html { redirect_to notas_url, notice: 'pesquisa was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_nota
+  #  authorize 
+   @nota = Nota.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def nota_params
+    params.require(:nota).permit(:nota, :pesquisa_id)
+  end
 end

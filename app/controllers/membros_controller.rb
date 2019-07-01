@@ -45,7 +45,7 @@ class MembrosController < ApplicationController
   def destroy
     @membro.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'membro was successfully destroyed.' }
+      format.html { redirect_to membros_url, notice: 'membro was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -59,7 +59,7 @@ class MembrosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def membro_params
-    params.require(:membro).permit(:pergunta)
+    params.require(:membro).permit(:nome, :email, :pesquisa_id)
   end
 
 end

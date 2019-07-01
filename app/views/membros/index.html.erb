@@ -1,7 +1,30 @@
 <div class="container-fluid">
-  <p><h3>Pesquisas</h3></p>
+  <p><h3>Membros</h3></p>
 
   <p>
     <button type="button" class="btn btn-outline-primary"><%= link_to 'Novo membro', new_membro_path() %></button>
   </p>
-  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+       <% @membros.each do |membro| %>
+      <tr>
+        <td><%= membro.nome %></td>
+        <td><%= membro.email %></td>
+        <td><%= link_to 'Mostar', membro, :class => 'btn btn-success btn-sm' %>|
+        <%= link_to 'Editar', edit_membro_path(membro), :class => 'btn btn-warning btn-sm' %>|
+        <%= link_to 'Apagar', membro, :class => 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+</div>
+  
