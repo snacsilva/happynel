@@ -32,9 +32,14 @@ class PesquisasController < ApplicationController
   end
 
   def update
-    
+    @member = Membro.find_by_user_id current_user.id
+    # raise 'Usuário já votou.' if @member.membro_respondeu?
+    @nota = Nota.new
+
+    Pesquisa.create_nota(pesquisa_params)
     respond_to do |format|
       if @pesquisa.update(pesquisa_params)
+        @member.update_attributes(respondeu: true)
         format.html { redirect_to @pesquisa, notice: 'pesquisa was successfully updated.' }
         format.json { render :show, status: :ok, location: @pesquisa }
       else
@@ -44,8 +49,6 @@ class PesquisasController < ApplicationController
     end
   end
 
-  # DELETE /categories/1
-  # DELETE /categories/1.json
   def destroy
     @pesquisa.destroy
     respond_to do |format|
@@ -63,7 +66,7 @@ class PesquisasController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def pesquisa_params
-    params.require(:pesquisa).permit(:pergunta)
+    params.require(:pesquisa).permit(:pergunta, notas_attributes: [:valor])
   end
-
+  
 end

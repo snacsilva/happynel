@@ -46,7 +46,9 @@ class MembrosController < ApplicationController
 
   def destroy
     raise 'Procedimento não permitido' if @membro.nil? || @membro.user.id == current_user.id
+    @user = User.find @membro.user_id
     @membro.destroy
+    @user.destroy
     respond_to do |format|
       format.html { redirect_to membros_url, notice: 'membro was successfully destroyed.' }
       format.json { head :no_content }

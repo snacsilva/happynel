@@ -13,6 +13,9 @@ class Membro < ApplicationRecord
         })
     end
 
+    def membro_respondeu?
+        respondeu
+    end
 
     private 
     def send_confirmation

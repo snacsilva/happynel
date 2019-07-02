@@ -1,8 +1,13 @@
 <div class="container-fluid">
   <%= form_with(model: @pesquisa, local: true) do |form| %>
     <%=@pesquisa.pergunta%>
-    <%= form.select(:nota, 
+    <p>
+      <%= form.select(:nota, 
           options_for_select(0..10)) 
           %>
+    </p>
+    <p>
+      <%= form.submit "Salvar", class: "btn btn-primary" %>
+    </p>
   <%end%>
 </div>

@@ -22,9 +22,8 @@ class NotasController < ApplicationController
         format.json { render json: @nota.errors, status: :unprocessable_entity }
       end
     end
-
-
   end
+
   def update
     respond_to do |format|
       if @nota.update(pesquisa_params)
@@ -37,8 +36,6 @@ class NotasController < ApplicationController
     end
   end
 
-  # DELETE /notas/1
-  # DELETE /notas/1.json
   def destroy
     @nota.destroy
     respond_to do |format|
