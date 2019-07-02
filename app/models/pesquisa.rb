@@ -9,14 +9,14 @@ class Pesquisa < ApplicationRecord
     before_update :is_blocked
 
     def media
-        notas.average(:valor)#/(notas.length)
+        notas.average(:valor)
     end
 
     def self.create_nota nota
         
         @nota = Nota.new()
-        @nota.valor = nota[:pesquisa][:valor].to_i,
-        @nota.pesquisa_id = nota[:id].to_i
+        @nota.pesquisa_id = nota[:id]
+        @nota.valor = nota[:pesquisa][:valor]
         @nota.save
     end
 

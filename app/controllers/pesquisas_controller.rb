@@ -33,7 +33,7 @@ class PesquisasController < ApplicationController
 
   def update
     @member = Membro.find_by_user_id current_user.id
-    # raise 'Usuário já votou.' if @member.membro_respondeu?
+    raise 'Usuário já votou.' if @member.membro_respondeu?
 
     Pesquisa.create_nota(notas_attributes.slice(:pesquisa, :id))
     respond_to do |format|
