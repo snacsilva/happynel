@@ -68,8 +68,9 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+  config.host = 'https://radiant-savannah-17729.herokuapp.com/'
 
-  config.action_mailer.default_url_options = { :host => 'https://radiant-savannah-17729.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => config.host }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
