@@ -3,12 +3,6 @@ HappyNel
 
 Dashboard de enquete de satisfação
 
-## Requerimentos
-
-1. Rails 5
-2. Git - Ceder acesso ao repositório. Pode ser no Bitbucket, Github, Gitlab...
-3. Faça o deploy da aplicação em algum serviço externo, como Heroku, Digital Ocean ou outro de sua preferência.
-
 ## Problema
 
 Preciso medir o nível de satisfação dos membros da minha equipe, porém é importante que eles sintam-se confortáveis em atribuirem uma nota baixa.
