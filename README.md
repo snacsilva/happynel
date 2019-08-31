@@ -1,15 +1,28 @@
+HappyNel
+==
+
 Dashboard de enquete de satisfação
 
-Demo: 
+## Requerimentos
 
-### Ruby on Rails template project
+1. Rails 5
+2. Git - Ceder acesso ao repositório. Pode ser no Bitbucket, Github, Gitlab...
+3. Faça o deploy da aplicação em algum serviço externo, como Heroku, Digital Ocean ou outro de sua preferência.
 
-This project is based on a GitLab [Project Template](https://docs.gitlab.com/ee/gitlab-basics/create-project.html).
+## Problema
 
-Improvements can be proposed in the [original project](https://gitlab.com/gitlab-org/project-templates/rails).
+Preciso medir o nível de satisfação dos membros da minha equipe, porém é importante que eles sintam-se confortáveis em atribuirem uma nota baixa.
 
-### CI/CD with Auto DevOps
+## Proposta
 
-This template is compatible with [Auto DevOps](https://docs.gitlab.com/ee/topics/autodevops/).
+Deve existir uma área de administração com: 
 
-If Auto DevOps is not already enabled for this project, you can [turn it on](https://docs.gitlab.com/ee/topics/autodevops/#enabling-auto-devops) in the project settings.
+1. cadastro de membros(nome e email);
+2. ação para Enviar uma Pesquisa;
+ - Os membros cadastrados devem receber um email com um link para responder a pesquisa. {importante: "a resposta deve ser secreta"}
+3. listagem com todas as pesquisas criadas e sua Nota Média;
+
+### Importante
+
+1. O membro da equipe não precisa logar-se para responder a pesquisa, atribuindo assim uma nota de 0 a 10; 
+2. Quando todos os membros responderem uma pesquisa, um email deve ser enviado para TODOS com a Nota Média;
